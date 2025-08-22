@@ -1,0 +1,80 @@
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title{Ciko: AI-Powered Citation Verification and Literature Tracing}
+\author{
+  Ruoxin Liu\thanks{Professor, Communication University of China. Project Lead of Ciko.} \\
+  \texttt{support@ciko.ai, https://ciko.ai}
+}
+\date{August 22, 2025}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This report presents \textbf{Ciko}, an AI-driven system designed to solve two critical problems in academic writing: (1) tracing reliable supporting sources for user claims (\textbf{Find Source}), and (2) verifying the authenticity of citations to detect fabricated references (\textbf{Verify Source}). Leveraging large language models (LLMs) such as DeepSeek-R1 and integrating external databases (Crossref, PubMed, etc.), Ciko provides researchers with fast, verifiable, and high-quality literature support.
+\end{abstract}
+
+\section{Introduction}
+Academic integrity relies on authentic and traceable citations. However, the rise of generative AI tools has created challenges: fabricated references, unverifiable DOIs, and difficulty in sourcing high-quality supporting literature. Ciko addresses these problems by combining LLM reasoning with authoritative database checks.
+
+\section{The Problem}
+\begin{itemize}
+    \item \textbf{Untraceable Sources:} Students and researchers struggle to trace reliable references that directly support their claims.
+    \item \textbf{Fake Citations:} AI-generated text often produces fabricated papers, invalid DOIs, or mismatched references that mislead users.
+\end{itemize}
+
+\section{Solution}
+\subsection{Find Source Path}
+\begin{itemize}
+    \item Input: User-provided claim or paragraph.
+    \item LLM breaks down claims into distinct academic statements.
+    \item Database comparison across Crossref, PubMed, arXiv, etc.
+    \item High-quality literature filtering based on recency, impact, and authority.
+    \item Output: 1--3 verifiable supporting references with DOIs.
+\end{itemize}
+
+\subsection{Verify Source Path}
+\begin{itemize}
+    \item Input: Citation metadata (title, authors, DOI).
+    \item LLM extracts bibliographic information.
+    \item Crossref metadata comparison.
+    \item If match: citation verified as authentic. \\
+          If not: flagged as potential fake reference.
+\end{itemize}
+
+\section{Pipeline Diagram}
+Figure~\ref{fig:pipeline} illustrates the dual-path architecture of Ciko.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/pipeline.png}
+    \caption{Ciko dual-path pipeline: Find Source (left) and Verify Source (right).}
+    \label{fig:pipeline}
+\end{figure}
+
+\section{Market Overview}
+Ciko addresses the rapidly growing market of AI-assisted academic writing tools. Unlike general-purpose LLMs (ChatGPT, Claude, Gemini), which often generate unverifiable citations, Ciko provides:
+\begin{itemize}
+    \item Direct verification of citation authenticity.
+    \item Trusted source tracing from authoritative databases.
+    \item Multidisciplinary support for sciences, engineering, social sciences, and humanities.
+\end{itemize}
+
+\section{Impact}
+\begin{itemize}
+    \item \textbf{For Students:} Reduce stress and time spent validating sources.
+    \item \textbf{For Researchers:} Improve confidence in citation quality and reproducibility.
+    \item \textbf{For Institutions:} Safeguard academic integrity and reduce risks of plagiarism.
+\end{itemize}
+
+\section{Conclusion \& Future Work}
+Ciko demonstrates how AI can enhance trust in academic writing by verifying citation authenticity and efficiently tracing reliable supporting literature. Future work includes expanding the disciplinary coverage and integrating with journal submission systems.
+
+\bibliographystyle{plain}
+\bibliography{bibliography}
+
+\end{document}
